@@ -26,10 +26,10 @@ public class LogoutServlet extends HttpServlet {
 
     private void handleLogout(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        HttpSession session = request.getSession(false); // Get existing session, if any
+        HttpSession session = request.getSession(false);
         if (session != null) {
-            session.invalidate(); // Invalidate the session
+            session.invalidate();
         }
-        response.sendRedirect(request.getContextPath() + "/login.jsp"); // Redirect to login page
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
     }
 }
