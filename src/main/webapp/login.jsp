@@ -18,11 +18,16 @@
             background-color: #52a883;
             border: none;
         }
+
         .btn-primary:hover {
-            background-color: #444444;
+            background-color: #6b6b6b;
         }
-        .input-color{
+
+        .input-color {
             background-color: #c5c5c5;
+        }
+        .h3-color{
+            color: #52a883;
         }
     </style>
 </head>
@@ -32,7 +37,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-center">
-                    <h3>Login</h3>
+                    <h3 class="h3-color">Login</h3>
                 </div>
                 <div class="card-body">
                     <form action="login" method="post">
@@ -47,8 +52,8 @@
                                    placeholder="Enter password...">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
-                        <small class="form-text text-muted"><%=(request.getAttribute("loginError") != null ? request.getAttribute("loginError")  : "") %></small>
-                        <small class="form-text text-muted"><%=(request.getAttribute("message") != null ? request.getAttribute("message")  : "") %></small>
+                        <small style="color: #d32727"><%=(request.getAttribute("loginError") != null ? request.getAttribute("loginError")  : "") %></small>
+                        <small style="color: #d32727"><%=(request.getAttribute("message") != null ? request.getAttribute("message")  : "") %></small>
                     </form>
                 </div>
                 <div class="card-footer text-center">

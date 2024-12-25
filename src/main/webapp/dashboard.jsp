@@ -8,22 +8,43 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Dashboard</title>
     <style>
-        body {
-            font-family: "Noto Sans JP", sans-serif;
-            background-color: #151515;
-            color: #c29d9d;
-            margin: 20px;
-            padding: 0;
+        .btn-primary {
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #52a883;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #6b6b6b;
+        }
+
+        .h3-color {
+            color: #52a883;
         }
     </style>
 </head>
 <body>
-<form action="logout" method="post">
-    <button type="submit">Logout</button>
-</form>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <h1 class="text-center">Welcome</h1>
+                <div class="card-header text-center">
+                    <h3 class="h3-color">Logout</h3>
+                </div>
+                <div class="card-body">
+                    <form action="logout" method="post">
+                        <button type="submit" class="btn btn-primary btn-block">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
