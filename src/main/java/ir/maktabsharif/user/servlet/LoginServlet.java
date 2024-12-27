@@ -1,5 +1,5 @@
 package ir.maktabsharif.user.servlet;
-import ir.maktabsharif.user.dto.UserDTO;
+import ir.maktabsharif.user.model.dto.UserDTO;
 import ir.maktabsharif.user.service.UserService;
 import ir.maktabsharif.user.service.UserServiceImpl;
 import javax.servlet.ServletException;

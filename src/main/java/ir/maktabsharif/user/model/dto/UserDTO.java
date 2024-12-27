@@ -1,9 +1,8 @@
-package ir.maktabsharif.user.dto;
+package ir.maktabsharif.user.model.dto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Getter

@@ -1,6 +1,7 @@
 package ir.maktabsharif.user.service;
 
-import ir.maktabsharif.user.dto.UserDTO;
+import ir.maktabsharif.user.exception.UserNotFoundException;
+import ir.maktabsharif.user.model.dto.UserDTO;
 import ir.maktabsharif.user.model.User;
 import ir.maktabsharif.user.repository.UserRepository;
 import ir.maktabsharif.user.repository.UserRepositoryImpl;
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
                 .password(user.get().getPassword())
                 .build();
         return Optional.ofNullable(userDTO);
-        } catch (NoResultException e){
+        } catch (UserNotFoundException e) {
             return Optional.empty();
         }
     }
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService {
         try {
         Optional<User> userByUsername = userRepository.findUserByUsername(username);
         return userByUsername.isPresent();
-        } catch (NoResultException e) {
+        } catch (UserNotFoundException e) {
             return false;
         }
     }

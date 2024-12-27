@@ -1,8 +1,5 @@
 package ir.maktabsharif.user.model;
-
 import lombok.*;
-
-import javax.annotation.Generated;
 import javax.persistence.*;
 import java.io.Serializable;
 

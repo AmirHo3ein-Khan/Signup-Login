@@ -1,6 +1,6 @@
 package ir.maktabsharif.user.service;
 
-import ir.maktabsharif.user.dto.UserDTO;
+import ir.maktabsharif.user.model.dto.UserDTO;
 
 import java.util.Optional;
 

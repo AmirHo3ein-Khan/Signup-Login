@@ -1,17 +1,11 @@
 package ir.maktabsharif.user.repository;
-
+import ir.maktabsharif.user.exception.UserNotFoundException;
 import ir.maktabsharif.user.model.User;
 import ir.maktabsharif.user.util.JpaUtil;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import java.util.List;
+import javax.persistence.NoResultException;
 import java.util.Optional;
-import java.util.Set;
 
 public class UserRepositoryImpl implements UserRepository {
     @Override
@@ -25,16 +19,24 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Optional<User> findUserByUsernameAndPassword(String username , String password) {
+        try {
         EntityManager em = JpaUtil.getEntityManager();
         return Optional.ofNullable(em.createQuery("FROM User u WHERE u.username = : username and u.password = : password", User.class)
                 .setParameter("username", username)
                 .setParameter("password", password).getSingleResult());
+        } catch (NoResultException e ){
+            throw new UserNotFoundException();
+        }
     }
 
     @Override
     public Optional<User> findUserByUsername(String username) {
+        try {
         EntityManager em = JpaUtil.getEntityManager();
         return Optional.ofNullable(em.createQuery("FROM User u  WHERE u.username = : username", User.class)
                 .setParameter("username", username).getSingleResult());
+        } catch (NoResultException e ){
+            throw new UserNotFoundException();
+        }
     }
 }

@@ -1,5 +1,5 @@
 package ir.maktabsharif.user.servlet;
-import ir.maktabsharif.user.dto.UserDTO;
+import ir.maktabsharif.user.model.dto.UserDTO;
 import ir.maktabsharif.user.service.UserService;
 import ir.maktabsharif.user.service.UserServiceImpl;
 import javax.servlet.ServletException;
@@ -40,10 +40,10 @@ public class SignupServlet extends HttpServlet {
         } else {
             StringBuilder errors = new StringBuilder();
             for (ConstraintViolation<UserDTO> violation : validates) {
-                errors.append(violation.getMessage()).append("\n");
+                errors.append(violation.getMessage()).append("<br>");
             }
-            String errorHtml = errors.toString().replace("\n", "<br>");
-            req.setAttribute("errors", errorHtml);
+//            String errorHtml = errors.toString().replace("\n", "<br>");
+            req.setAttribute("errors", errors);
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
     }
